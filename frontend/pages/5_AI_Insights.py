@@ -5,12 +5,14 @@ frontend/pages/5_AI_Insights.py — AI-Generated Recommendations Page
 import json
 import streamlit as st
 
-from frontend.utils.state      import init_state, get_facility_id, get_facility_name
-from frontend.utils.api_client import (
-    get_recommendations, generate_recommendations, acknowledge_recommendation, ai_status
+from utils.api_client import (
+    acknowledge_recommendation,
+    ai_status,
+    generate_recommendations,
+    get_recommendations,
 )
-from frontend.utils.formatting import priority_tier
-
+from utils.formatting import priority_tier
+from utils.state import get_facility_id, get_facility_name, init_state
 st.set_page_config(page_title="AI Insights | SFEID", layout="wide", page_icon="💡")
 init_state()
 
