@@ -5,10 +5,13 @@ frontend/pages/8_Sustainability_Score.py — Campus Sustainability & Operations 
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
-
-from frontend.utils.state      import init_state, get_facility_id, get_facility_name
-from frontend.utils.api_client import get_sustainability_score, get_score_history, compute_score
-from frontend.utils.formatting import score_color
+from utils.api_client import (
+    compute_score,
+    get_score_history,
+    get_sustainability_score,
+)
+from utils.formatting import score_color
+from utils.state import get_facility_id, get_facility_name, init_state
 
 st.set_page_config(page_title="Sustainability Score | SFEID", layout="wide", page_icon="🌿")
 init_state()
