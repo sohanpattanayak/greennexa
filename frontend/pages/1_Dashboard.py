@@ -7,12 +7,15 @@ import streamlit as st
 from streamlit_autorefresh import st_autorefresh
 import plotly.graph_objects as go
 from datetime import datetime
-
-from frontend.utils.state      import init_state, get_facility_id, get_facility_name
-from frontend.utils.api_client import get_live_readings, synthetic_status, get_anomalies
-from frontend.utils.formatting import (
-    metric_label, metric_unit, metric_emoji, fmt_value, SEVERITY_COLORS
+from utils.api_client import get_anomalies, get_live_readings, synthetic_status
+from utils.formatting import (
+    SEVERITY_COLORS,
+    fmt_value,
+    metric_emoji,
+    metric_label,
+    metric_unit,
 )
+from utils.state import get_facility_id, get_facility_name, init_state
 
 st.set_page_config(page_title="Dashboard | SFEID", layout="wide", page_icon="📊")
 hide_st_style = """
