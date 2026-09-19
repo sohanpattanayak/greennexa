@@ -12,19 +12,26 @@ from typing import Optional
 import requests
 
 log = logging.getLogger("sfeid.api_client")
+# Set via st.session_state, st.secrets, or fallback to Render URL
+try:
+  import streamlit as st
 
-# Set via st.session_state or environment variable
-_BASE = "http://localhost:8000"
+  _BASE = st.secrets.get("API_BASE_URL", "https://greennexa.onrender.com")
+except Exception:
+  _BASE = "https://greennexa.onrender.com"
 
 
 def _base() -> str:
-    """Return API base URL — overridable via session state in app.py."""
-    try:
-        import streamlit as st
-        return st.session_state.get("api_base_url", _BASE)
-    except Exception:
-        return _BASE
-
+  """Return API base URL - overridable via session state in app.py."""
+  try:
+    import streamlit as st
+    if "api_base_url" in st.session_state:
+      return st.session_state["api_base_url"]
+    if "API_BASE_URL" in st.secrets:
+      return st.secrets["API_BASE_URL"]
+  except Exception:
+    pass
+  return _BASE
 
 def _get(path: str, params: dict = None) -> dict | list:
     try:
