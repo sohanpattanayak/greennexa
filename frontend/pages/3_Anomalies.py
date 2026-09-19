@@ -7,12 +7,15 @@ import pandas as pd
 import plotly.express as px
 from datetime import datetime
 
-from frontend.utils.state      import init_state, get_facility_id, get_facility_name
-from frontend.utils.api_client import get_anomalies, trigger_anomaly_detection
-from frontend.utils.formatting import (
-    metric_label, metric_unit, fmt_value, SEVERITY_COLORS, SEVERITY_EMOJI
+from utils.api_client import get_anomalies, trigger_anomaly_detection
+from utils.formatting import (
+    SEVERITY_COLORS,
+    SEVERITY_EMOJI,
+    fmt_value,
+    metric_label,
+    metric_unit,
 )
-
+from utils.state import get_facility_id, get_facility_name, init_state
 st.set_page_config(page_title="Anomalies | SFEID", layout="wide", page_icon="🚨")
 init_state()
 
