@@ -7,9 +7,13 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-from frontend.utils.state      import init_state, get_facility_id, get_facility_name
-from frontend.utils.api_client import get_priority_alerts, run_priority_engine, update_alert
-from frontend.utils.formatting import priority_tier, STATUS_EMOJI
+from utils.api_client import (
+    get_priority_alerts,
+    run_priority_engine,
+    update_alert,
+)
+from utils.formatting import STATUS_EMOJI, priority_tier
+from utils.state import get_facility_id, get_facility_name, init_state
 
 st.set_page_config(page_title="Priority Engine | SFEID", layout="wide", page_icon="⚡")
 init_state()
