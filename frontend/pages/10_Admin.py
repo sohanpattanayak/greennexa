@@ -4,12 +4,16 @@ frontend/pages/10_Admin.py — Admin Portal & System Settings
 
 import streamlit as st
 import pandas as pd
-
-from frontend.utils.state      import init_state, get_facility_id, get_facility_name
-from frontend.utils.api_client import (
-    get_thresholds, update_threshold, ingest_manual, toggle_synthetic, synthetic_status, get_sensors
+from utils.api_client import (
+    get_sensors,
+    get_thresholds,
+    ingest_manual,
+    synthetic_status,
+    toggle_synthetic,
+    update_threshold,
 )
-from frontend.utils.formatting import METRIC_LABELS, metric_label
+from utils.formatting import METRIC_LABELS, metric_label
+from utils.state import get_facility_id, get_facility_name, init_state
 
 st.set_page_config(page_title="Admin | SFEID", layout="wide", page_icon="⚙️")
 init_state()
