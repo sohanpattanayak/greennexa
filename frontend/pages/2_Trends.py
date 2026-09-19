@@ -8,11 +8,15 @@ import plotly.graph_objects as go
 import pandas as pd
 from datetime import datetime, timedelta
 
-from frontend.utils.state      import init_state, get_facility_id, get_facility_name
-from frontend.utils.api_client import get_trends, get_readings
-from frontend.utils.formatting import (
-    metric_label, metric_unit, metric_emoji, METRIC_LABELS, fmt_value
+ from utils.api_client import get_readings, get_trends
+from utils.formatting import (
+    METRIC_LABELS,
+    fmt_value,
+    metric_emoji,
+    metric_label,
+    metric_unit,
 )
+from utils.state import get_facility_id, get_facility_name, init_state
 
 st.set_page_config(page_title="Trends | SFEID", layout="wide", page_icon="📈")
 init_state()
