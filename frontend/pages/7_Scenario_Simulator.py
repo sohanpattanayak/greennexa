@@ -6,10 +6,9 @@ import json
 import streamlit as st
 import plotly.graph_objects as go
 
-from frontend.utils.state      import init_state, get_facility_id, get_facility_name
-from frontend.utils.api_client import run_simulation, get_simulation_runs
-from frontend.utils.formatting import fmt_inr, fmt_delta
-
+from utils.api_client import get_simulation_runs, run_simulation
+from utils.formatting import fmt_delta, fmt_inr
+from utils.state import get_facility_id, get_facility_name, init_state
 st.set_page_config(page_title="Scenario Simulator | SFEID", layout="wide", page_icon="🔬")
 init_state()
 
