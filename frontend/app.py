@@ -12,8 +12,8 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-from frontend.utils.state      import init_state, is_authenticated, set_authenticated
-from frontend.utils.api_client import verify_password, get_facilities, api_status, synthetic_status
+from utils.state      import init_state, is_authenticated, set_authenticated
+from utils.api_client import verify_password, get_facilities, api_status, synthetic_status
 
 # ── Session state initialisation ─────────────────────────────────────────────
 init_state()
