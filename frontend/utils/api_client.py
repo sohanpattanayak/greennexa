@@ -23,15 +23,8 @@ except Exception:
 
 def _base() -> str:
   """Return API base URL - overridable via session state in app.py."""
-  try:
-    import streamlit as st
-    if "api_base_url" in st.session_state:
-      return st.session_state["api_base_url"]
-    if "API_BASE_URL" in st.secrets:
-      return st.secrets["API_BASE_URL"]
-  except Exception:
-    pass
-  return _BASE
+  def _base() -> str:
+    return "https://greennexa.onrender.com"
 
 def _get(path: str, params: dict = None) -> dict | list:
     try:
