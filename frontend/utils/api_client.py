@@ -23,7 +23,6 @@ except Exception:
 
 def _base() -> str:
   """Return API base URL - overridable via session state in app.py."""
-  def _base() -> str:
     return "https://greennexa.onrender.com"
 
 def _get(path: str, params: dict = None) -> dict | list:
